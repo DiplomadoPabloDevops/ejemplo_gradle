@@ -1,37 +1,13 @@
-# Getting Started
+Getting Started PCAMPOS
+Build Code con Gradle
 
-## Windows
+    ./gradlew clean build
 
-### Compile Code
-* ./mvnw.cmd clean compile -e
+Run Jar 
 
-### Test Code
-* ./mvnw.cmd clean test -e
+    Local: ./gradlew bootRun
+    Pipeline: nohup bash gradlew bootRun &
 
-### Jar Code
-* ./mvnw.cmd clean package -e
+Testing Application
 
-### Run Jar
-* Local:      ./mvnw.cmd spring-boot:run 
-* Background: nohup bash mvnw.cmd spring-boot:run &
-
-### Testing Application
-* Abrir navegador: http://localhost:8081/rest/mscovid/test?msg=testing
-
-## Linux
-
-### Compile Code
-* ./mvnw clean compile -e
-
-### Test Code
-* ./mvnw clean test -e
-
-### Jar Code
-* ./mvnw clean package -e
-
-### Run Jar
-* Local:      ./mvnw spring-boot:run 
-* Background: nohup bash mvnw spring-boot:run &
-
-### Testing Application
-* curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'
+    curl -X GET 'http://localhost:8082/rest/mscovid/test?msg=testing'
