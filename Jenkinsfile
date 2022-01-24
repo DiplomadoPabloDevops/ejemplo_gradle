@@ -22,6 +22,7 @@ pipeline {
         stage('Run') {
             steps {
                    bat  "start /min gradlew bootRun &"
+                   bat "ping 127.0.0.1 -n 6 > nul"
             }
         }
 	    stage('Test') {
@@ -33,9 +34,9 @@ pipeline {
             steps {
 		        nexusPublisher nexusInstanceId: 'nexus_test', nexusRepositoryId: 'test-repo', 
 		        packages: [[$class: 'MavenPackage', 
-			    mavenAssetList: [[classifier: '', 
-			    extension: '', 
-			    filePath: '${env.WORKSPACE}/build/DevOpsUsach2020-0.0.1.jar']], 
+			    mavenAssetList: [
+			        [classifier: '', extension: '', filePath: "${env.WORKSPACE}/build/libs/DevOpsUsach2020-0.0.1.jar"]
+			        ], 
 			    mavenCoordinate: [artifactId: 'DevOpsUsach2020', 
 			    groupId: 'com.devopsusach2020', 
 			    packaging: 'jar', 
